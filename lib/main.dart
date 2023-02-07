@@ -15,13 +15,13 @@ class PokemonApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: mode,
-      home: const TopPage(),
+      home: const PokemonListPage(),
     );
   }
 }
 
-class TopPage extends StatelessWidget {
-  const TopPage({Key? key}) : super(key: key);
+class PokemonListPage extends StatelessWidget {
+  const PokemonListPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
