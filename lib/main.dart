@@ -26,11 +26,24 @@ class PokemonListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: SafeArea(
         child: ListView.builder(
           itemCount: 1000,
           itemBuilder: (_, index) => PokemonListItem(index: index)
           )
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (_) => {},
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list),
+            label: 'Home'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings'
+          ),
+        ],
       ),
     );
   }
