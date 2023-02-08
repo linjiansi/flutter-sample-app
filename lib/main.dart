@@ -15,25 +15,35 @@ class PokemonApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: mode,
-      home: const PokemonListPage(),
+      home: const RootView(),
     );
   }
 }
 
-class PokemonListPage extends StatelessWidget {
-  const PokemonListPage({Key? key}) : super(key: key);
+class RootView extends StatefulWidget {
+  const RootView({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _RootViewState();
+}
+
+class _RootViewState extends State<RootView> {
+
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: ListView.builder(
-          itemCount: 1000,
-          itemBuilder: (_, index) => PokemonListItem(index: index)
-          )
+        child: currentIndex == 0 ? const PokemonListView() : const SettingsView()
       ),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (_) => {},
+        onTap: (index) => {
+          setState(
+            () => currentIndex = index
+          )
+        },
+        currentIndex: currentIndex,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
@@ -48,6 +58,34 @@ class PokemonListPage extends StatelessWidget {
     );
   }
 }
+
+class SettingsView extends StatelessWidget {
+  const SettingsView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: const [
+        ListTile(
+          leading: Icon(Icons.lightbulb),
+          title: Text('Dark/Light Mode'),
+        ),
+      ],
+    );
+  }
+}
+
+class PokemonListView extends StatelessWidget {
+  const PokemonListView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: 1000,
+        itemBuilder: (_, index) => PokemonListItem(index: index));
+  }
+}
+
 
 class PokemonListItem extends StatelessWidget {
   const PokemonListItem({
