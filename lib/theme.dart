@@ -28,13 +28,11 @@ ThemeMode valToMode(int val) {
   }
 }
 
-Future<void> saveThemeMode(ThemeMode mode) async {
-  final pref = await SharedPreferences.getInstance();
+Future<void> saveThemeMode(ThemeMode mode, SharedPreferences pref) async {
   pref.setInt(themeMode, modeToVal(mode));
 }
 
-Future<ThemeMode> loadThemeMode() async {
-  final pref = await SharedPreferences.getInstance();
+Future<ThemeMode> loadThemeMode(SharedPreferences pref) async {
   final ret = valToMode(pref.getInt(themeMode) ?? 0);
   return ret;
 }

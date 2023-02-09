@@ -1,23 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sample_app/pokemon_list.dart';
 import 'package:flutter_sample_app/settings.dart';
+import 'package:flutter_sample_app/theme_mode_notifier.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const PokemonApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final SharedPreferences pref = await SharedPreferences.getInstance();
+  final themeModeNotifier = ThemeModeNotifier(pref);
+  runApp(ChangeNotifierProvider(
+    create: (_) => themeModeNotifier,
+    child: const PokemonApp(),
+  ));
 }
 
-class PokemonApp extends StatelessWidget {
+class PokemonApp extends StatefulWidget {
   const PokemonApp({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _PokemonAppState();
+}
+
+class _PokemonAppState extends State<PokemonApp> {
+
   @override
   Widget build(BuildContext context) {
-    ThemeMode mode = ThemeMode.system;
-    return MaterialApp(
-      title: 'Pokemon App',
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
-      themeMode: mode,
-      home: const RootView(),
-    );
+    return Consumer<ThemeModeNotifier>(
+        builder: ((context, value, child) => MaterialApp(
+              title: 'Pokemon App',
+              theme: ThemeData.light(),
+              darkTheme: ThemeData.dark(),
+              themeMode: value.mode,
+              home: const RootView(),
+            )));
   }
 }
 

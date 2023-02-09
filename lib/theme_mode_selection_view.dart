@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample_app/theme_mode_notifier.dart';
+import 'package:provider/provider.dart';
 
 class ThemeModeSelectionPage extends StatefulWidget {
   const ThemeModeSelectionPage({Key? key, required this.themeMode}) : super(key: key);
@@ -11,47 +13,44 @@ class ThemeModeSelectionPage extends StatefulWidget {
 
 class _ThemeModeSelectionPageState extends State<ThemeModeSelectionPage> {
 
-  ThemeMode _current = ThemeMode.system;
-
-  @override
-  void initState() {
-    super.initState();
-    _current = widget.themeMode;
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            ListTile(
-              leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () => Navigator.pop<ThemeMode>(context, _current),
+    return Consumer<ThemeModeNotifier>(
+        builder: (context, value, child) => Scaffold(
+              body: SafeArea(
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: IconButton(
+                        icon: const Icon(Icons.arrow_back),
+                        onPressed: ()  {
+                            value.update(value.mode);
+                            Navigator.of(context).pop();
+                        }
+                      ),
+                    ),
+                    RadioListTile<ThemeMode>(
+                      value: ThemeMode.system,
+                      groupValue: value.mode,
+                      title: const Text('System'),
+                      onChanged: (val) => value.update(val!),
+                    ),
+                    RadioListTile<ThemeMode>(
+                      value: ThemeMode.dark,
+                      groupValue: value.mode,
+                      title: const Text('Dark'),
+                      onChanged: (val) => value.update(val!),
+                    ),
+                    RadioListTile<ThemeMode>(
+                      value: ThemeMode.light,
+                      groupValue: value.mode,
+                      title: const Text('Light'),
+                      onChanged: (val) => value.update(val!),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            RadioListTile<ThemeMode>(
-              value: ThemeMode.system,
-              groupValue: _current,
-              title: const Text('System'),
-              onChanged: (val) => { setState(() => _current = val!) },
-            ),
-            RadioListTile<ThemeMode>(
-              value: ThemeMode.dark,
-              groupValue: _current,
-              title: const Text('Dark'),
-              onChanged: (val) => { setState(() => _current = val!) },
-            ),
-            RadioListTile<ThemeMode>(
-              value: ThemeMode.light,
-              groupValue: _current,
-              title: const Text('Light'),
-              onChanged: (val) => { setState(() => _current = val!) },
-            ),
-          ],
-        ),
-      ),
+            )
     );
   }
 }
