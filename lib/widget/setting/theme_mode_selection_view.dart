@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sample_app/theme_mode_notifier.dart';
+import 'package:flutter_sample_app/util/theme_mode_notifier.dart';
 import 'package:provider/provider.dart';
 
 class ThemeModeSelectionPage extends StatelessWidget {

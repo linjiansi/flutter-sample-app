@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sample_app/root.dart';
-import 'package:flutter_sample_app/theme_mode_notifier.dart';
+import 'package:flutter_sample_app/util/theme_mode_notifier.dart';
+import 'package:flutter_sample_app/widget/root.dart';
 import 'package:provider/provider.dart';
 
 class PokemonApp extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sample_app/pokemon_list.dart';
-import 'package:flutter_sample_app/settings.dart';
+import 'package:flutter_sample_app/widget/pokemon/pokemon_list.dart';
+import 'package:flutter_sample_app/widget/setting/settings.dart';
 
 class RootView extends StatefulWidget {
   const RootView({Key? key}) : super(key: key);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sample_app/const.dart';
+import 'package:flutter_sample_app/util/const.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 int modeToVal(ThemeMode mode) {

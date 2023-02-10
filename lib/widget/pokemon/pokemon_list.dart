@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sample_app/pokemon_detail.dart';
+import 'package:flutter_sample_app/widget/pokemon/pokemon_detail.dart';
 
 class PokemonListView extends StatelessWidget {
   const PokemonListView({Key? key}) : super(key: key);
