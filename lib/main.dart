@@ -15,14 +15,8 @@ void main() async {
   ));
 }
 
-class PokemonApp extends StatefulWidget {
+class PokemonApp extends StatelessWidget {
   const PokemonApp({Key? key}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => _PokemonAppState();
-}
-
-class _PokemonAppState extends State<PokemonApp> {
 
   @override
   Widget build(BuildContext context) {

@@ -3,14 +3,8 @@ import 'package:flutter_sample_app/theme_mode_notifier.dart';
 import 'package:flutter_sample_app/theme_mode_selection_view.dart';
 import 'package:provider/provider.dart';
 
-class SettingsView extends StatefulWidget {
+class SettingsView extends StatelessWidget {
   const SettingsView({Key? key}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => _SettingsViewState();
-}
-
-class _SettingsViewState extends State<SettingsView> {
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +20,7 @@ class _SettingsViewState extends State<SettingsView> {
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) =>
-                          ThemeModeSelectionPage(themeMode: value.mode),
+                          const ThemeModeSelectionPage(),
                     ));
                   },
                 ),
