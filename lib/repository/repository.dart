@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_sample_app/api/api_client.dart';
+import 'package:flutter_sample_app/data/api/api_client.dart';
 
 class Repository {
   late ApiClient apiClient;

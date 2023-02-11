@@ -1,4 +1,4 @@
-import 'package:flutter_sample_app/api/model/pokemon_list_response.dart';
+import 'package:flutter_sample_app/data/api/model/pokemon_list_response.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
