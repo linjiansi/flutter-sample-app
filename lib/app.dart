@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sample_app/util/theme_mode_notifier.dart';
+import 'package:flutter_sample_app/notifier/theme_mode_notifier.dart';
 import 'package:flutter_sample_app/widget/root.dart';
 import 'package:provider/provider.dart';
 
