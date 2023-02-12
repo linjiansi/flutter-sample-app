@@ -1,6 +1,8 @@
 class PokemonListEntity {
   final List<PokemonEntity> items;
-  PokemonListEntity(this.items);
+  final int totalCount;
+
+  PokemonListEntity(this.items, this.totalCount);
 }
 
 class PokemonEntity {
