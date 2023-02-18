@@ -97,8 +97,8 @@ class _PokemonListItem extends StatelessWidget {
         title: Text(pokemon!.name),
         trailing: const Icon(Icons.navigate_next_outlined),
         onTap: () => {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => const PokemonDetailView()))
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) => PokemonDetailView(pokemon: pokemon)))
         },
       );
     } else {

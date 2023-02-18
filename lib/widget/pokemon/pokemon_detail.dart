@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample_app/entity/pokemon_list_entity.dart';
 
 class PokemonDetailView extends StatelessWidget {
-  const PokemonDetailView({Key? key}) : super(key: key);
+  final PokemonEntity? pokemon;
+  const PokemonDetailView({Key? key, required this.pokemon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class PokemonDetailView extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(32),
                 child: Image.network(
-                  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png',
+                  pokemon!.imageUrlString,
                   height: 100,
                   width: 100,
                 ),
@@ -30,9 +32,9 @@ class PokemonDetailView extends StatelessWidget {
               )
             ],
           ),
-          const Text(
-            'pikachu',
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+          Text(
+            pokemon!.name,
+            style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
           ),
           Chip(
               label: Text(
