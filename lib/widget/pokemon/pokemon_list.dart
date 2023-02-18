@@ -63,7 +63,8 @@ class _PokemonListView extends StatelessWidget {
 
   bool _scrollNotification(ScrollNotification scrollInfo) {
     if (!isLoading &&
-        scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent) {
+        scrollInfo.metrics.extentAfter <
+            scrollInfo.metrics.viewportDimension * 1.5) {
       isLoading = true;
       Provider.of<PokemonNotifier>(_buildContext, listen: false)
           .fetchPokemons();
