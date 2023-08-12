@@ -20,11 +20,7 @@ class Result {
   final String name;
   final String url;
 
-  Result(
-    this.name,
-    this.url
-  );
+  Result(this.name, this.url);
 
-  factory Result.fromJson(Map<String, dynamic> json) =>
-      _$ResultFromJson(json);
+  factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
 }

@@ -9,7 +9,6 @@ class Repository {
       contentType: Headers.jsonContentType,
       responseType: ResponseType.json,
       receiveTimeout: 30 * 1000,
-
     );
     Dio dio = Dio(baseOptions);
     apiClient = ApiClient(dio);

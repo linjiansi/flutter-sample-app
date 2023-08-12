@@ -3,7 +3,6 @@ import 'package:flutter_sample_app/notifier/theme_mode_notifier.dart';
 import 'package:provider/provider.dart';
 
 class ThemeModeSelectionPage extends StatelessWidget {
-
   const ThemeModeSelectionPage({Key? key}) : super(key: key);
 
   @override
@@ -15,12 +14,11 @@ class ThemeModeSelectionPage extends StatelessWidget {
                   children: [
                     ListTile(
                       leading: IconButton(
-                        icon: const Icon(Icons.arrow_back),
-                        onPressed: ()  {
+                          icon: const Icon(Icons.arrow_back),
+                          onPressed: () {
                             value.update(value.mode);
                             Navigator.of(context).pop();
-                        }
-                      ),
+                          }),
                     ),
                     RadioListTile<ThemeMode>(
                       value: ThemeMode.system,
@@ -43,7 +41,6 @@ class ThemeModeSelectionPage extends StatelessWidget {
                   ],
                 ),
               ),
-            )
-    );
+            ));
   }
 }

@@ -4,7 +4,7 @@ import 'package:flutter_sample_app/widget/setting/theme_mode_selection_view.dart
 import 'package:provider/provider.dart';
 
 class SettingsView extends StatelessWidget {
-  const SettingsView({Key? key}) : super(key: key);
+  const SettingsView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,7 @@ class SettingsView extends StatelessWidget {
                       : (value.mode == ThemeMode.dark ? 'Dark' : 'Light')),
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>
-                          const ThemeModeSelectionPage(),
+                      builder: (context) => const ThemeModeSelectionPage(),
                     ));
                   },
                 ),

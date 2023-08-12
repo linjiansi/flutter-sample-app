@@ -7,7 +7,7 @@ class PokemonRepository extends Repository {
     required int offset,
     int limit = 20,
   }) async {
-    var response = await apiClient.fetchPokemons(offset, limit);
+    final response = await apiClient.fetchPokemons(offset, limit);
     return PokemonListMapper().toEntity(response);
   }
 }

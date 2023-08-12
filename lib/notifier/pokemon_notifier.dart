@@ -17,16 +17,16 @@ class PokemonNotifier extends ChangeNotifier {
 
   PokemonEntity? byId(int id) => _pokemons[id];
 
-  void fetchPokemons({bool isRefresh = false}) async {
+  Future<void> fetchPokemons({bool isRefresh = false}) async {
     _setupState(isRefresh);
 
     try {
       if (_didLastLoad && _state != DataState.initialFetching) {
         _state = DataState.noMoreData;
       } else {
-        PokemonListEntity pokemonList =
+        final pokemonList =
             await repository.fetchPokemons(offset: _offset, limit: _limit);
-        List<PokemonEntity> pokemons = pokemonList.items;
+        final pokemons = pokemonList.items;
         _pokemons += pokemons;
         _offset += pokemons.length;
         _state = DataState.fetched;
